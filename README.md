@@ -8,4 +8,4 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 
 | Week | Task | Concept               | Title                      | Source Code                                       |
 | ---- | ---- | --------------------- | -------------------------- | ------------------------------------------------- |
-| 1    | 1    | Basic Data Structures | Check brackets in the code | [brackets.py](assignments/week1/task1/brackets.py |
+| 1    | 1    | Basic Data Structures | Check brackets in the code | [brackets.py](assignments/week1/task1/brackets.py) |
