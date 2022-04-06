@@ -9,7 +9,7 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 | Week | Task | Topic                   | Problem Statement                                         | Source Code                                              |
 | ---- | ---- | ----------------------- | --------------------------------------------------------- | -------------------------------------------------------- |
 | 1    | 1    | Stack, Bracket Matching | [Check brackets in the code](#check-brackets-in-the-code) | [brackets.py](assignments/week1/task1/brackets.py)       |
-| 1    | 2    | Tree Travesal           | [Compute tree height](#compute-tree-height)               | [tree-height.py](assignments/week1/task2/tree-height.py) |
+| 1    | 2    | Tree Travesal           | [Compute tree height](#compute-tree-height)               | [tree_height.py](assignments/week1/task2/tree_height.py) |
 
 ## 🔍 Problem Statements
 
