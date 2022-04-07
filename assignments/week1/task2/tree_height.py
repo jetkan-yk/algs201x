@@ -27,20 +27,27 @@ class Tree:
 
     def _build_tree(self):
         self.nodes = [Node(i) for i in range(self.n)]
-        for node in self.nodes:
-            parent = self.parents[node.index]
-            if parent == -1:
-                self.root = self.nodes[node.index]
-            else:
-                self.nodes[parent].add_child(node.index)
 
-    def _max_height(self, node: Node):
-        if not node.children:
-            return 1
-        return 1 + max([self._max_height(self.nodes[child]) for child in node.children])
+        for node in range(self.n):
+            parent = self.parents[node]
+            if parent == -1:
+                self.root = node
+            else:
+                self.nodes[parent].add_child(node)
 
     def compute_height(self):
-        return self._max_height(self.root)
+        self.depths = [1] * self.n
+        stack = [self.root]
+
+        while stack:
+            node = stack.pop()
+            children = self.nodes[node].children
+            if children:
+                for child in children:
+                    self.depths[child] = self.depths[node] + 1
+                    stack.append(child)
+
+        return max(self.depths)
 
 
 def main():
