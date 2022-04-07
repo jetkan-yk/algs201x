@@ -41,11 +41,9 @@ class Tree:
 
         while stack:
             node = stack.pop()
-            children = self.nodes[node].children
-            if children:
-                for child in children:
-                    self.depths[child] = self.depths[node] + 1
-                    stack.append(child)
+            for child in self.nodes[node].children:
+                self.depths[child] = self.depths[node] + 1
+                stack.append(child)
 
         return max(self.depths)
 
