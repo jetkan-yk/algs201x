@@ -62,6 +62,6 @@ if __name__ == "__main__":
 
     num_fail = num_tests - num_pass
     if num_fail:
-        print(f"Failed {num_fail} / {num_tests} tests")
+        print(f"Failed {num_fail} / {num_tests} tests (╯°□°)╯︵ ┻━┻")
     else:
-        print("Passed all tests. Good job!")
+        print("Passed all tests. Good job! d(^ω^)b")
