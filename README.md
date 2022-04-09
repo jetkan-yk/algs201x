@@ -10,7 +10,8 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 | ---- | ---- | ----------------------- | --------------------------------------------------------- | -------------------------------------------------------------- |
 | 1    | 1    | Stack, Bracket Matching | [Check brackets in the code](#check-brackets-in-the-code) | [check_brackets.py](assignments/week1/task1/check_brackets.py) |
 | 1    | 2    | Tree Travesal           | [Compute tree height](#compute-tree-height)               | [tree_height.py](assignments/week1/task2/tree_height.py)       |
-| 2    | 1    | Heapify                 | [Convert array into heap](#convert-array-into-heap)       | [build_heap.py](assignments/week2/task1/build_heap.py)         |
+| 3    | 1    | Heapify                 | [Convert array into heap](#convert-array-into-heap)       | [build_heap.py](assignments/week3/task1/build_heap.py)         |
+| 3    | 2    |                         | [Parallel processing](#parallel-processing)               | [job_queue.py](assignments/week3/task2/job_queue.py)           |
 
 ## 🔍 Problem Statements
 
@@ -41,3 +42,9 @@ In this problem you will convert an array of integers into a heap. This is the c
 The first step of the HeapSort algorithm is to create a heap from the array you want to sort. By the way, did you know that algorithms based on Heaps are widely used for external sort, when you need to sort huge files that don’t fit into memory of a computer?
 
 Your task is to implement this first step and convert a given array of integers into a heap. You will do that by applying a certain number of swaps to the array. Swap is an operation which exchanges elements 𝑎𝑖 and 𝑎𝑗 of the array 𝑎 for some 𝑖 and 𝑗. You will need to convert the array into a heap using only 𝑂(𝑛) swaps, as was described in the lectures. Note that you will need to use a min-heap instead of a max-heap in this problem.
+
+### Parallel processing
+
+In this problem you will simulate a program that processes a list of jobs in parallel. Operating systems such as Linux, MacOS or Windows all have special programs in them called schedulers which do exactly this with the programs on your computer.
+
+You have a program which is parallelized and uses 𝑛 independent threads to process the given list of 𝑚 jobs. Threads take jobs in the order they are given in the input. If there is a free thread, it immediately takes the next job from the list. If a thread has started processing a job, it doesn’t interrupt or stop until it finishes processing the job. If several threads try to take jobs from the list simultaneously, the thread with smaller index takes the job. For each job you know exactly how long will it take any thread to process this job, and this time is the same for all the threads. You need to determine for each job which thread will process it and when will it start processing.
