@@ -6,10 +6,11 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 
 ## 📖 Table of Contents
 
-| Week | Task | Topic                   | Problem Statement                                         | Source Code                                              |
-| ---- | ---- | ----------------------- | --------------------------------------------------------- | -------------------------------------------------------- |
-| 1    | 1    | Stack, Bracket Matching | [Check brackets in the code](#check-brackets-in-the-code) | [check_brackets.py](assignments/week1/task1/check_brackets.py)       |
-| 1    | 2    | Tree Travesal           | [Compute tree height](#compute-tree-height)               | [tree_height.py](assignments/week1/task2/tree_height.py) |
+| Week | Task | Topic                   | Problem Statement                                         | Source Code                                                    |
+| ---- | ---- | ----------------------- | --------------------------------------------------------- | -------------------------------------------------------------- |
+| 1    | 1    | Stack, Bracket Matching | [Check brackets in the code](#check-brackets-in-the-code) | [check_brackets.py](assignments/week1/task1/check_brackets.py) |
+| 1    | 2    | Tree Travesal           | [Compute tree height](#compute-tree-height)               | [tree_height.py](assignments/week1/task2/tree_height.py)       |
+| 2    | 1    | Heapify                 | [Convert array into heap](#convert-array-into-heap)       | [build_heap.py](assignments/week2/task1/build_heap.py)         |
 
 ## 🔍 Problem Statements
 
@@ -32,3 +33,11 @@ Trees are used to manipulate hierarchical data such as hierarchy of categories o
 In this problem, your goal is to get used to trees. You will need to read a description of a tree from the input, implement the tree data structure, store the tree and compute its height.
 
 You are given a description of a rooted tree. Your task is to compute and output its height. Recall that the height of a (rooted) tree is the maximum depth of a node, or the maximum distance from a leaf to the root. You are given an arbitrary tree, not necessarily a binary tree.
+
+### Convert array into heap
+
+In this problem you will convert an array of integers into a heap. This is the crucial step of the sorting algorithm called HeapSort. It has guaranteed worst-case running time of 𝑂(𝑛 log 𝑛) as opposed to QuickSort’s average running time of 𝑂(𝑛 log 𝑛). QuickSort is usually used in practice, because typically it is faster, but HeapSort is used for external sort when you need to sort huge files that don’t fit into memory of your computer.
+
+The first step of the HeapSort algorithm is to create a heap from the array you want to sort. By the way, did you know that algorithms based on Heaps are widely used for external sort, when you need to sort huge files that don’t fit into memory of a computer?
+
+Your task is to implement this first step and convert a given array of integers into a heap. You will do that by applying a certain number of swaps to the array. Swap is an operation which exchanges elements 𝑎𝑖 and 𝑎𝑗 of the array 𝑎 for some 𝑖 and 𝑗. You will need to convert the array into a heap using only 𝑂(𝑛) swaps, as was described in the lectures. Note that you will need to use a min-heap instead of a max-heap in this problem.
