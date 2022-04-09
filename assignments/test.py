@@ -11,7 +11,9 @@ def load_files(folder):
     ans_files = []
 
     for entry in os.listdir(folder):
-        if entry.endswith(".a"):
+        if entry == ".DS_Store":
+            continue
+        elif entry.endswith(".a"):
             ans_files.append(entry)
         elif not entry.endswith(".out"):
             in_files.append(entry)
