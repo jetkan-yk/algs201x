@@ -13,6 +13,7 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 | 3    | 1    | Heapify                 | [Convert array into heap](#convert-array-into-heap)       | [build_heap.py](assignments/week3/task1/build_heap.py)         |
 | 3    | 2    |                         | [Parallel processing](#parallel-processing)               | [job_queue.py](assignments/week3/task2/job_queue.py)           |
 | 4    | 1    |                         | [Phone book](#phone-book)                                 | [phone_book.py](assignments/week4/task1/phone_book.py)         |
+| 4    | 2    |                         | [Hashing with chains](#hashing-with-chains)               | [hash_chains.py](assignments/week4/task2/hash_chains.py)       |
 
 ## 🔍 Problem Statements
 
@@ -59,3 +60,17 @@ In this task your goal is to implement a simple phone book manager. It should be
 - **add** number name. It means that the user adds a person with name name and phone number number to the phone book. If there exists a user with such number already, then your manager has to overwrite the corresponding name.
 - **del** number. It means that the manager should erase a person with number number from the phone book. If there is no such person, then it should just ignore the query.
 - **find** number. It means that the user looks for a person with phone number number. The manager should reply with the appropriate name, or with string “not found" (without quotes) if there is no such person in the book.
+
+### Hashing with chains
+
+In this problem you will implement a hash table using the chaining scheme. Chaining is one of the most popular ways of implementing hash tables in practice. The hash table you will implement can be used to implement a phone book on your phone or to store the password table of your computer or web service (but don’t forget to store hashes of passwords instead of the passwords themselves, or you will get hacked!).
+
+In this task your goal is to implement a hash table with lists chaining. You are already given the
+number of buckets 𝑚 and the hash function. It is a polynomial hash function where 𝑆[𝑖] is the ASCII code of the 𝑖-th symbol of 𝑆, 𝑝 = 1 000 000 007 and 𝑥 = 263. Your program should support the following kinds of queries:
+
+- **add** string — insert string into the table. If there is already such string in the hash table, then just ignore the query.
+- **del** string — remove string from the table. If there is no such string in the hash table, then just ignore the query.
+- **find** string — output “yes" or “no" (without quotes) depending on whether the table contains string or not.
+- **check** 𝑖 — output the content of the 𝑖-th list in the table. Use spaces to separate the elements of the list. If 𝑖-th list is empty, output a blank line.
+
+When inserting a new string into a hash chain, you must insert it in the beginning of the chain.
