@@ -1,5 +1,8 @@
 # python3
 
+MAX_PHONE_NUM = 10**7
+RESPONSE_NOT_FOUND = "not found"
+
 
 class Query:
     def __init__(self, query):
@@ -20,30 +23,23 @@ def write_responses(result):
 
 def process_queries(queries):
     result = []
-    # Keep list of all existing (i.e. not deleted yet) contacts.
-    contacts = []
-    for cur_query in queries:
-        if cur_query.type == "add":
-            # if we already have contact with such number,
-            # we should rewrite contact's name
-            for contact in contacts:
-                if contact.number == cur_query.number:
-                    contact.name = cur_query.name
-                    break
-            else:  # otherwise, just add it
-                contacts.append(cur_query)
-        elif cur_query.type == "del":
-            for j in range(len(contacts)):
-                if contacts[j].number == cur_query.number:
-                    contacts.pop(j)
-                    break
+    contacts = [None] * MAX_PHONE_NUM
+
+    for query in queries:
+        number = query.number
+        if query.type == "add":
+            contacts[number] = query.name
+        elif query.type == "del":
+            if contacts[number]:
+                contacts[number] = None
+        elif query.type == "find":
+            if contacts[query.number]:
+                result.append(contacts[query.number])
+            else:
+                result.append(RESPONSE_NOT_FOUND)
         else:
-            response = "not found"
-            for contact in contacts:
-                if contact.number == cur_query.number:
-                    response = contact.name
-                    break
-            result.append(response)
+            raise RuntimeError(f"Invalid query: {query.type}")
+
     return result
 
 
