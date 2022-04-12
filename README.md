@@ -12,6 +12,7 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 | 1    | 2    | Tree Travesal           | [Compute tree height](#compute-tree-height)               | [tree_height.py](assignments/week1/task2/tree_height.py)       |
 | 3    | 1    | Heapify                 | [Convert array into heap](#convert-array-into-heap)       | [build_heap.py](assignments/week3/task1/build_heap.py)         |
 | 3    | 2    |                         | [Parallel processing](#parallel-processing)               | [job_queue.py](assignments/week3/task2/job_queue.py)           |
+| 4    | 1    |                         | [Phone book](#phone-book)                                 | [phone_book.py](assignments/week4/task1/phone_book.py)         |
 
 ## 🔍 Problem Statements
 
@@ -48,3 +49,13 @@ Your task is to implement this first step and convert a given array of integers 
 In this problem you will simulate a program that processes a list of jobs in parallel. Operating systems such as Linux, MacOS or Windows all have special programs in them called schedulers which do exactly this with the programs on your computer.
 
 You have a program which is parallelized and uses 𝑛 independent threads to process the given list of 𝑚 jobs. Threads take jobs in the order they are given in the input. If there is a free thread, it immediately takes the next job from the list. If a thread has started processing a job, it doesn’t interrupt or stop until it finishes processing the job. If several threads try to take jobs from the list simultaneously, the thread with smaller index takes the job. For each job you know exactly how long will it take any thread to process this job, and this time is the same for all the threads. You need to determine for each job which thread will process it and when will it start processing.
+
+### Phone book
+
+In this problem you will implement a simple phone book manager.
+
+In this task your goal is to implement a simple phone book manager. It should be able to process the following types of user’s queries:
+
+- **add** number name. It means that the user adds a person with name name and phone number number to the phone book. If there exists a user with such number already, then your manager has to overwrite the corresponding name.
+- **del** number. It means that the manager should erase a person with number number from the phone book. If there is no such person, then it should just ignore the query.
+- **find** number. It means that the user looks for a person with phone number number. The manager should reply with the appropriate name, or with string “not found" (without quotes) if there is no such person in the book.
