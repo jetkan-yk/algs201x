@@ -6,15 +6,17 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 
 ## 📖 Table of Contents
 
-| Week | Task | Topic                   | Problem Statement                                         | Source Code                                                    |
-| ---- | ---- | ----------------------- | --------------------------------------------------------- | -------------------------------------------------------------- |
-| 1    | 1    | Stack, Bracket matching | [Check brackets in the code](#check-brackets-in-the-code) | [check_brackets.py](assignments/week1/task1/check_brackets.py) |
-| 1    | 2    | Tree travesal           | [Compute tree height](#compute-tree-height)               | [tree_height.py](assignments/week1/task2/tree_height.py)       |
-| 3    | 1    | Heapify                 | [Convert array into heap](#convert-array-into-heap)       | [build_heap.py](assignments/week3/task1/build_heap.py)         |
-| 3    | 2    | Heapq operations        | [Parallel processing](#parallel-processing)               | [job_queue.py](assignments/week3/task2/job_queue.py)           |
-| 4    | 1    | Dict operations         | [Phone book](#phone-book)                                 | [phone_book.py](assignments/week4/task1/phone_book.py)         |
-| 4    | 2    | Hash chaining           | [Hashing with chains](#hashing-with-chains)               | [hash_chains.py](assignments/week4/task2/hash_chains.py)       |
-| 6    | 1    |                         | [Binary tree traversals](#binary-tree-traversals)         | [tree_orders.py](assignments/week6/task1/tree_orders.py)       |
+| Week | Task | Topic                         | Problem Statement                                              | Source Code                                                    |
+| ---- | ---- | ----------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| 1    | 1    | Stack, Bracket matching       | [Check brackets in the code](#check-brackets-in-the-code)      | [check_brackets.py](assignments/week1/task1/check_brackets.py) |
+| 1    | 2    | Tree travesal                 | [Compute tree height](#compute-tree-height)                    | [tree_height.py](assignments/week1/task2/tree_height.py)       |
+| 3    | 1    | Heapify                       | [Convert array into heap](#convert-array-into-heap)            | [build_heap.py](assignments/week3/task1/build_heap.py)         |
+| 3    | 2    | Heapq operations              | [Parallel processing](#parallel-processing)                    | [job_queue.py](assignments/week3/task2/job_queue.py)           |
+| 4    | 1    | Dict operations               | [Phone book](#phone-book)                                      | [phone_book.py](assignments/week4/task1/phone_book.py)         |
+| 4    | 2    | Hash chaining                 | [Hashing with chains](#hashing-with-chains)                    | [hash_chains.py](assignments/week4/task2/hash_chains.py)       |
+| 6    | 1    | Pre, In, Post order traversal | [Binary tree traversals](#binary-tree-traversals)              | [tree_orders.py](assignments/week6/task1/tree_orders.py)       |
+| 6    | 2    | In order traversal            | [Is it a BST](#is-is-a-binary-search-tree)                     | [is_bst.py](assignments/week6/task2/is_bst.py)                 |
+| 6    | 3    |                               | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version) | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)       |
 
 ## 🔍 Problem Statements
 
@@ -81,3 +83,15 @@ When inserting a new string into a hash chain, you must insert it in the beginni
 In this problem you will implement in-order, pre-order and post-order traversals of a binary tree. These traversals were defined in the week 1 lecture on tree traversals, but it is very useful to practice implementing them to understand binary search trees better.
 
 You are given a rooted binary tree. Build and output its in-order, pre-order and post-order traversals.
+
+### Is is a binary search tree?
+
+In this problem you are going to test whether a binary search tree data structure from some programming language library was implemented correctly. There is already a program that plays with this data structure by inserting, removing, searching integers in the data structure and outputs the state of the internal binary tree after each operation. Now you need to test whether the given binary tree is indeed a correct binary search tree. In other words, you want to ensure that you can search for integers in this binary tree using binary search through the tree, and you will always get correct result: if the integer is in the tree, you will find it, otherwise you will not.
+
+You are given a binary tree with integers as its keys. You need to test whether it is a correct binary search tree. The definition of the binary search tree is the following: for any node of the tree, if its key is 𝑥, then for any node in its left subtree its key must be strictly less than 𝑥, and for any node in its right subtree its key must be strictly greater than 𝑥. In other words, smaller elements are to the left, and bigger elements are to the right. You need to check whether the given binary tree structure satisfies this condition. You are guaranteed that the input contains a valid binary tree. That is, it is a tree, and each node has at most two children.
+
+### Is it a binary search tree? Hard version.
+
+In this problem you are going to solve the same problem as the previous one, but for a more general case, when binary search tree may contain equal keys.
+
+You are given a binary tree with integers as its keys. You need to test whether it is a correct binary search tree. Note that there can be duplicate integers in the tree, and this is allowed. The definition of the binary search tree in such case is the following: for any node of the tree, if its key is 𝑥, then for any node in its left subtree its key must be strictly less than 𝑥, and for any node in its right subtree its key must be greater than or equal to 𝑥. In other words, smaller elements are to the left, bigger elements are to the right, and duplicates are always to the right. You need to check whether the given binary tree structure satisfies this condition. You are guaranteed that the input contains a valid binary tree. That is, it is a tree, and each node has at most two children.
