@@ -11,7 +11,8 @@ ROOT_NODE = 0
 def is_bst(tree):
     def visit(node):
         if node == -1:
-            return True
+            return
+
         key, left_child, right_child = tree[node]
 
         visit(left_child)
