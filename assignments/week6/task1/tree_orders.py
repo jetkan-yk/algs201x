@@ -9,43 +9,44 @@ threading.stack_size(2**27)  # new thread will get stack of such size
 class TreeOrders:
     def read(self):
         self.n = int(sys.stdin.readline())
-        self.key = [0 for i in range(self.n)]
-        self.left = [0 for i in range(self.n)]
-        self.right = [0 for i in range(self.n)]
-        for i in range(self.n):
-            [a, b, c] = map(int, sys.stdin.readline().split())
-            self.key[i] = a
-            self.left[i] = b
-            self.right[i] = c
+        self.key = []
+        self.left = []
+        self.right = []
 
-    def inOrder(self):
-        self.result = []
+        for _ in range(self.n):
+            a, b, c = map(int, sys.stdin.readline().split())
+            self.key.append(a)
+            self.left.append(b)
+            self.right.append(c)
+
+    def in_order(self):
+        result = []
         # Finish the implementation
         # You may need to add a new recursive method to do that
 
-        return self.result
+        return result
 
-    def preOrder(self):
-        self.result = []
+    def pre_order(self):
+        result = []
         # Finish the implementation
         # You may need to add a new recursive method to do that
 
-        return self.result
+        return result
 
-    def postOrder(self):
-        self.result = []
+    def post_order(self):
+        result = []
         # Finish the implementation
         # You may need to add a new recursive method to do that
 
-        return self.result
+        return result
 
 
 def main():
     tree = TreeOrders()
     tree.read()
-    print(" ".join(str(x) for x in tree.inOrder()))
-    print(" ".join(str(x) for x in tree.preOrder()))
-    print(" ".join(str(x) for x in tree.postOrder()))
+    print(" ".join(str(x) for x in tree.in_order()))
+    print(" ".join(str(x) for x in tree.pre_order()))
+    print(" ".join(str(x) for x in tree.post_order()))
 
 
 threading.Thread(target=main).start()
