@@ -9,8 +9,32 @@ ROOT_NODE = 0
 
 
 def is_bst(tree):
-    # Implement correct algorithm here
-    return True
+    def visit(node):
+        if node == -1:
+            return True
+
+        key, left_child, right_child = tree[node]
+
+        if left_child == right_child == -1:
+            max_vals[node] = min_vals[node] = key
+        elif visit(left_child) and visit(right_child):
+            if left_child != -1 and max_vals[left_child] >= key:
+                return False
+            if right_child != -1 and min_vals[right_child] < key:
+                return False
+
+            min_vals[node] = min(key, min_vals[left_child])
+            max_vals[node] = max(key, max_vals[right_child])
+        else:
+            return False
+        return True
+
+    if len(tree) < 2:
+        return True
+
+    max_vals = [None] * len(tree)
+    min_vals = [None] * len(tree)
+    return visit(ROOT_NODE)
 
 
 def main():
