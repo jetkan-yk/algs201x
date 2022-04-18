@@ -6,17 +6,18 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 
 ## 📖 Table of Contents
 
-| Week | Task | Topic                         | Problem Statement                                              | Source Code                                                    |
-| ---- | ---- | ----------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| 1    | 1    | Stack, Bracket matching       | [Check brackets in the code](#check-brackets-in-the-code)      | [check_brackets.py](assignments/week1/task1/check_brackets.py) |
-| 1    | 2    | DFS with stack                | [Compute tree height](#compute-tree-height)                    | [tree_height.py](assignments/week1/task2/tree_height.py)       |
-| 3    | 1    | Heapify                       | [Convert array into heap](#convert-array-into-heap)            | [build_heap.py](assignments/week3/task1/build_heap.py)         |
-| 3    | 2    | Heapq usage                   | [Parallel processing](#parallel-processing)                    | [job_queue.py](assignments/week3/task2/job_queue.py)           |
-| 4    | 1    | Basic dict usage              | [Phone book](#phone-book)                                      | [phone_book.py](assignments/week4/task1/phone_book.py)         |
-| 4    | 2    | Hash chaining                 | [Hashing with chains](#hashing-with-chains)                    | [hash_chains.py](assignments/week4/task2/hash_chains.py)       |
-| 6    | 1    | Pre, In, Post order traversal | [Binary tree traversals](#binary-tree-traversals)              | [tree_orders.py](assignments/week6/task1/tree_orders.py)       |
-| 6    | 2    | In-order traversal            | [Is it a BST](#is-is-a-binary-search-tree)                     | [is_bst.py](assignments/week6/task2/is_bst.py)                 |
-| 6    | 3    | BST recursion                 | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version) | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)       |
+| Week | Task | Topic                         | Problem Statement                                                             | Source Code                                                        |
+| ---- | ---- | ----------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| 1    | 1    | Stack, Bracket matching       | [Check brackets in the code](#check-brackets-in-the-code)                     | [check_brackets.py](assignments/week1/task1/check_brackets.py)     |
+| 1    | 2    | DFS with stack                | [Compute tree height](#compute-tree-height)                                   | [tree_height.py](assignments/week1/task2/tree_height.py)           |
+| 1    | 3    |                               | [Network packet processing simulation](#network-packet-processing-simulation) | [process_packages.py](assignments/week1/task3/process_packages.py) |
+| 3    | 1    | Heapify                       | [Convert array into heap](#convert-array-into-heap)                           | [build_heap.py](assignments/week3/task1/build_heap.py)             |
+| 3    | 2    | Heapq usage                   | [Parallel processing](#parallel-processing)                                   | [job_queue.py](assignments/week3/task2/job_queue.py)               |
+| 4    | 1    | Basic dict usage              | [Phone book](#phone-book)                                                     | [phone_book.py](assignments/week4/task1/phone_book.py)             |
+| 4    | 2    | Hash chaining                 | [Hashing with chains](#hashing-with-chains)                                   | [hash_chains.py](assignments/week4/task2/hash_chains.py)           |
+| 6    | 1    | Pre, In, Post order traversal | [Binary tree traversals](#binary-tree-traversals)                             | [tree_orders.py](assignments/week6/task1/tree_orders.py)           |
+| 6    | 2    | In-order traversal            | [Is it a BST](#is-is-a-binary-search-tree)                                    | [is_bst.py](assignments/week6/task2/is_bst.py)                     |
+| 6    | 3    | BST recursion                 | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version)                | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)           |
 
 ## 🔍 Problem Statements
 
@@ -39,6 +40,14 @@ Trees are used to manipulate hierarchical data such as hierarchy of categories o
 In this problem, your goal is to get used to trees. You will need to read a description of a tree from the input, implement the tree data structure, store the tree and compute its height.
 
 You are given a description of a rooted tree. Your task is to compute and output its height. Recall that the height of a (rooted) tree is the maximum depth of a node, or the maximum distance from a leaf to the root. You are given an arbitrary tree, not necessarily a binary tree.
+
+### Network packet processing simulation
+
+In this problem you will implement a program to simulate the processing of network packets.
+
+You are given a series of incoming network packets, and your task is to simulate their processing. Packets arrive in some order. For each packet number 𝑖, you know the time when it arrived 𝐴𝑖 and the time it takes the processor to process it 𝑃𝑖 (both in milliseconds). There is only one processor, and it processes the incoming packets in the order of their arrival. If the processor started to process some packet, it doesn’t interrupt or stop until it finishes the processing of this packet, and the processing of packet 𝑖 takes exactly 𝑃𝑖 milliseconds.
+
+The computer processing the packets has a network buffer of fixed size 𝑆. When packets ar- rive, they are stored in the buffer before being processed. However, if the buffer is full when a packet arrives (there are 𝑆 packets which have arrived before this packet, and the computer hasn’t finished processing any of them), it is dropped and won’t be processed at all. If several packets arrive at the same time, they are first all stored in the buffer (some of them may be dropped because of that — those which are described later in the input). The computer processes the packets in the order of their arrival, and it starts processing the next available packet from the buffer as soon as it finishes processing the previous one. If at some point the computer is not busy, and there are no packets in the buffer, the computer just waits for the next packet to arrive. Note that a packet leaves the buffer and frees the space in the buffer as soon as the computer finishes processing it.
 
 ### Convert array into heap
 
