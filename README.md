@@ -9,14 +9,14 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 | Week | Task | Topic                         | Problem Statement                                              | Source Code                                                    |
 | ---- | ---- | ----------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
 | 1    | 1    | Stack, Bracket matching       | [Check brackets in the code](#check-brackets-in-the-code)      | [check_brackets.py](assignments/week1/task1/check_brackets.py) |
-| 1    | 2    | Tree travesal                 | [Compute tree height](#compute-tree-height)                    | [tree_height.py](assignments/week1/task2/tree_height.py)       |
+| 1    | 2    | DFS with stack                | [Compute tree height](#compute-tree-height)                    | [tree_height.py](assignments/week1/task2/tree_height.py)       |
 | 3    | 1    | Heapify                       | [Convert array into heap](#convert-array-into-heap)            | [build_heap.py](assignments/week3/task1/build_heap.py)         |
-| 3    | 2    | Heapq operations              | [Parallel processing](#parallel-processing)                    | [job_queue.py](assignments/week3/task2/job_queue.py)           |
-| 4    | 1    | Dict operations               | [Phone book](#phone-book)                                      | [phone_book.py](assignments/week4/task1/phone_book.py)         |
+| 3    | 2    | Heapq usage                   | [Parallel processing](#parallel-processing)                    | [job_queue.py](assignments/week3/task2/job_queue.py)           |
+| 4    | 1    | Basic dict usage              | [Phone book](#phone-book)                                      | [phone_book.py](assignments/week4/task1/phone_book.py)         |
 | 4    | 2    | Hash chaining                 | [Hashing with chains](#hashing-with-chains)                    | [hash_chains.py](assignments/week4/task2/hash_chains.py)       |
 | 6    | 1    | Pre, In, Post order traversal | [Binary tree traversals](#binary-tree-traversals)              | [tree_orders.py](assignments/week6/task1/tree_orders.py)       |
-| 6    | 2    | In order traversal            | [Is it a BST](#is-is-a-binary-search-tree)                     | [is_bst.py](assignments/week6/task2/is_bst.py)                 |
-| 6    | 3    |                               | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version) | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)       |
+| 6    | 2    | In-order traversal            | [Is it a BST](#is-is-a-binary-search-tree)                     | [is_bst.py](assignments/week6/task2/is_bst.py)                 |
+| 6    | 3    | BST recursion                 | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version) | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)       |
 
 ## 🔍 Problem Statements
 
@@ -90,7 +90,7 @@ In this problem you are going to test whether a binary search tree data structur
 
 You are given a binary tree with integers as its keys. You need to test whether it is a correct binary search tree. The definition of the binary search tree is the following: for any node of the tree, if its key is 𝑥, then for any node in its left subtree its key must be strictly less than 𝑥, and for any node in its right subtree its key must be strictly greater than 𝑥. In other words, smaller elements are to the left, and bigger elements are to the right. You need to check whether the given binary tree structure satisfies this condition. You are guaranteed that the input contains a valid binary tree. That is, it is a tree, and each node has at most two children.
 
-### Is it a binary search tree? Hard version.
+### Is it a binary search tree? Hard version
 
 In this problem you are going to solve the same problem as the previous one, but for a more general case, when binary search tree may contain equal keys.
 
