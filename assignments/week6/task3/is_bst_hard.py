@@ -6,35 +6,26 @@ sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)  # new thread will get stack of such size
 
 ROOT_NODE = 0
+MAX_KEY = 2**32
 
 
 def is_bst(tree):
-    def visit(node):
+    def check_range(node, min_key, max_key):
         if node == -1:
             return True
 
         key, left_child, right_child = tree[node]
 
-        if left_child == right_child == -1:
-            max_vals[node] = min_vals[node] = key
-        elif visit(left_child) and visit(right_child):
-            if left_child != -1 and max_vals[left_child] >= key:
-                return False
-            if right_child != -1 and min_vals[right_child] < key:
-                return False
-
-            min_vals[node] = min(key, min_vals[left_child])
-            max_vals[node] = max(key, max_vals[right_child])
-        else:
+        if key < min_key or key > max_key:
             return False
-        return True
+
+        return check_range(left_child, min_key, key - 1) and \
+            check_range(right_child, key, max_key)
 
     if len(tree) < 2:
         return True
 
-    max_vals = [None] * len(tree)
-    min_vals = [None] * len(tree)
-    return visit(ROOT_NODE)
+    return check_range(ROOT_NODE, -MAX_KEY, MAX_KEY)
 
 
 def main():
