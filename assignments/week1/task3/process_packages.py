@@ -1,6 +1,9 @@
 # python3
 
 
+from collections import deque
+
+
 class Request:
     def __init__(self, arrival_time, process_time):
         self.arrival_time = arrival_time
@@ -16,11 +19,20 @@ class Response:
 class Buffer:
     def __init__(self, size):
         self.size = size
-        self.finish_time_ = []
+        self.finish_times = deque()
 
     def process(self, request):
-        # write your code here
-        return Response(False, -1)
+        while self.finish_times and self.finish_times[0] <= request.arrival_time:
+            self.finish_times.popleft()
+
+        if len(self.finish_times) == self.size:
+            return Response(True, -1)
+        else:
+            start_time = (
+                self.finish_times[-1] if self.finish_times else request.arrival_time
+            )
+            self.finish_times.append(start_time + request.process_time)
+            return Response(False, start_time)
 
 
 def read_requests(count):
