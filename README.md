@@ -6,18 +6,19 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 
 ## 📖 Table of Contents
 
-| Week | Task | Topic                         | Problem Statement                                                             | Source Code                                                        |
-| ---- | ---- | ----------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| 1    | 1    | Stack, Bracket matching       | [Check brackets in the code](#check-brackets-in-the-code)                     | [check_brackets.py](assignments/week1/task1/check_brackets.py)     |
-| 1    | 2    | DFS with stack                | [Compute tree height](#compute-tree-height)                                   | [tree_height.py](assignments/week1/task2/tree_height.py)           |
-| 1    | 3    |                               | [Network packet processing simulation](#network-packet-processing-simulation) | [process_packages.py](assignments/week1/task3/process_packages.py) |
-| 3    | 1    | Heapify                       | [Convert array into heap](#convert-array-into-heap)                           | [build_heap.py](assignments/week3/task1/build_heap.py)             |
-| 3    | 2    | Heapq usage                   | [Parallel processing](#parallel-processing)                                   | [job_queue.py](assignments/week3/task2/job_queue.py)               |
-| 4    | 1    | Basic dict usage              | [Phone book](#phone-book)                                                     | [phone_book.py](assignments/week4/task1/phone_book.py)             |
-| 4    | 2    | Hash chaining                 | [Hashing with chains](#hashing-with-chains)                                   | [hash_chains.py](assignments/week4/task2/hash_chains.py)           |
-| 6    | 1    | Pre, In, Post order traversal | [Binary tree traversals](#binary-tree-traversals)                             | [tree_orders.py](assignments/week6/task1/tree_orders.py)           |
-| 6    | 2    | In-order traversal            | [Is it a BST](#is-is-a-binary-search-tree)                                    | [is_bst.py](assignments/week6/task2/is_bst.py)                     |
-| 6    | 3    | BST recursion                 | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version)                | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)           |
+| Week | Task | Topic                           | Problem Statement                                                             | Source Code                                                        |
+| ---- | ---- | ------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| 1    | 1    | Stack, Bracket matching         | [Check brackets in the code](#check-brackets-in-the-code)                     | [check_brackets.py](assignments/week1/task1/check_brackets.py)     |
+| 1    | 2    | DFS with stack                  | [Compute tree height](#compute-tree-height)                                   | [tree_height.py](assignments/week1/task2/tree_height.py)           |
+| 1    | 3    | Single-process scheduler, Deque | [Network packet processing simulation](#network-packet-processing-simulation) | [process_packages.py](assignments/week1/task3/process_packages.py) |
+| 3    | 1    | Heapify                         | [Convert array into heap](#convert-array-into-heap)                           | [build_heap.py](assignments/week3/task1/build_heap.py)             |
+| 3    | 2    | Multi-process scheduler, Heapq  | [Parallel processing](#parallel-processing)                                   | [job_queue.py](assignments/week3/task2/job_queue.py)               |
+| 3    | 3    |                                 | [Merging tables](#merging-tables)                                             | [merging_tables.py](assignments/week3/task3/merging_tables.py)     |
+| 4    | 1    | Basic Dict                      | [Phone book](#phone-book)                                                     | [phone_book.py](assignments/week4/task1/phone_book.py)             |
+| 4    | 2    | Hash chaining                   | [Hashing with chains](#hashing-with-chains)                                   | [hash_chains.py](assignments/week4/task2/hash_chains.py)           |
+| 6    | 1    | Pre, In, Post order traversal   | [Binary tree traversals](#binary-tree-traversals)                             | [tree_orders.py](assignments/week6/task1/tree_orders.py)           |
+| 6    | 2    | In-order traversal              | [Is it a BST](#is-is-a-binary-search-tree)                                    | [is_bst.py](assignments/week6/task2/is_bst.py)                     |
+| 6    | 3    | BST recursion                   | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version)                | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)           |
 
 ## 🔍 Problem Statements
 
@@ -62,6 +63,19 @@ Your task is to implement this first step and convert a given array of integers 
 In this problem you will simulate a program that processes a list of jobs in parallel. Operating systems such as Linux, MacOS or Windows all have special programs in them called schedulers which do exactly this with the programs on your computer.
 
 You have a program which is parallelized and uses 𝑛 independent threads to process the given list of 𝑚 jobs. Threads take jobs in the order they are given in the input. If there is a free thread, it immediately takes the next job from the list. If a thread has started processing a job, it doesn’t interrupt or stop until it finishes processing the job. If several threads try to take jobs from the list simultaneously, the thread with smaller index takes the job. For each job you know exactly how long will it take any thread to process this job, and this time is the same for all the threads. You need to determine for each job which thread will process it and when will it start processing.
+
+### Merging tables
+
+In this problem, your goal is to simulate a sequence of merge operations with tables in a database.
+
+There are 𝑛 tables stored in some database. The tables are numbered from 1 to 𝑛. All tables share the same set of columns. Each table contains either several rows with real data or a symbolic link to another table. Initially, all tables contain data, and 𝑖-th table has 𝑟𝑖 rows. You need to perform 𝑚 of the following operations:
+
+1. Consider table number $\text{destination}_i$. Traverse the path of symbolic links to get to the data. That is,
+   while $\text{destination}_i$ contains a symbolic link instead of real data do:
+   $\text{destination}_i$ ← symlink($\text{destination}_i$)
+2. Consider the table number $\text{source}_i$ and traverse the path of symbolic links from it in the same manner as for $\text{destination}_i$.
+3. Now, $\text{destination}_i$ and $\text{source}_i$ are the numbers of two tables with real data. If $\text{destination}_i$ != $\text{source}_i$, copy all the rows from table $\text{source}_i$ to table $\text{destination}_i$, then clear the table $\text{source}_i$ and instead of real data put a symbolic link to $\text{destination}_i$ into it.
+4. Print the maximum size among all 𝑛 tables (recall that size is the number of rows in the table). If the table contains only a symbolic link, its size is considered to be 0.
 
 ### Phone book
 
