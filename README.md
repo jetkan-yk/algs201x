@@ -16,7 +16,7 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 | 3    | 3    | Union-Find Disjoint Set         | [Merging tables](#merging-tables)                                             | [merging_tables.py](assignments/week3/task3/merging_tables.py)     |
 | 4    | 1    | Basic Dict                      | [Phone book](#phone-book)                                                     | [phone_book.py](assignments/week4/task1/phone_book.py)             |
 | 4    | 2    | Hash chaining                   | [Hashing with chains](#hashing-with-chains)                                   | [hash_chains.py](assignments/week4/task2/hash_chains.py)           |
-| 4    | 3    |                                 | [Find pattern in text](#find-pattern-in-text)                                 | [hash_substring.py](assignments/week4/task3/hash_substring.py)     |
+| 4    | 3    | Rabin-Karp, String hashing      | [Find pattern in text](#find-pattern-in-text)                                 | [hash_substring.py](assignments/week4/task3/hash_substring.py)     |
 | 6    | 1    | Pre, In, Post order traversal   | [Binary tree traversals](#binary-tree-traversals)                             | [tree_orders.py](assignments/week6/task1/tree_orders.py)           |
 | 6    | 2    | In-order traversal              | [Is it a BST](#is-is-a-binary-search-tree)                                    | [is_bst.py](assignments/week6/task2/is_bst.py)                     |
 | 6    | 3    | BST recursion                   | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version)                | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)           |
