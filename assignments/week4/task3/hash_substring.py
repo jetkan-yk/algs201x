@@ -12,18 +12,17 @@ def poly_hash(S, p, x):
     return hash
 
 
-def precompute_hashes(T, P_len, p, x):
-    T_len = len(T)
-    H = [None] * (T_len - P_len + 1)
-    S = T[P_len:]
-    H[T_len - P_len] = poly_hash(S, p, x)
+def precompute_hashes(T, P, p, x):
+    H = [None] * (len(T) - len(P) + 1)
+    S = T[len(T) - len(P) :]
+    H[len(T) - len(P)] = poly_hash(S, p, x)
 
     y = 1
-    for _ in range(P_len):
-        y = y * x % p
+    for _ in range(len(P)):
+        y = (y * x) % p
 
-    for i in range(T_len - P_len - 1, -1, -1):
-        H[i] = (x * H[i + 1] + ord(T[i]) - y * ord(T[i + P_len])) % p
+    for i in reversed(range(len(T) - len(P))):
+        H[i] = (x * H[i + 1] + ord(T[i]) - y * ord(T[i + len(P)])) % p
     return H
 
 
@@ -37,10 +36,10 @@ def get_occurrences(P, T):
 
     positions = []
     p_hash = poly_hash(P, p, x)
+    H = precompute_hashes(T, P, p, x)
 
     for i in range(len(T) - len(P) + 1):
-        t_hash = poly_hash(T[i : i + len(P)], p, x)
-        if p_hash == t_hash and T[i : i + len(P)] == P:
+        if p_hash == H[i] and T[i : i + len(P)] == P:
             positions.append(i)
     return positions
 
