@@ -31,18 +31,16 @@ def print_occurrences(output):
     print(" ".join(map(str, output)))
 
 
-def get_occurrences(pattern, text):
-    prime = 1000000007
-    multiplier = 263
+def get_occurrences(P, T):
+    p = 1000000007
+    x = 263
 
     positions = []
-    p_hash = poly_hash(pattern, prime, multiplier)
-    hashes = precompute_hashes(text, len(pattern), prime, multiplier)
+    p_hash = poly_hash(P, p, x)
 
-    for i in range(len(text) - len(pattern) + 1):
-        if p_hash != hashes[i]:
-            continue
-        if text[i : i + len(pattern)] == pattern:
+    for i in range(len(T) - len(P) + 1):
+        t_hash = poly_hash(T[i : i + len(P)], p, x)
+        if p_hash == t_hash and T[i : i + len(P)] == P:
             positions.append(i)
     return positions
 
