@@ -20,6 +20,8 @@ This repository contains solutions to the UCSanDiegoX ALGS201x programming assig
 | 6    | 1    | Pre, In, Post order traversal   | [Binary tree traversals](#binary-tree-traversals)                             | [tree_orders.py](assignments/week6/task1/tree_orders.py)           |
 | 6    | 2    | In-order traversal              | [Is it a BST](#is-is-a-binary-search-tree)                                    | [is_bst.py](assignments/week6/task2/is_bst.py)                     |
 | 6    | 3    | BST recursion                   | [Is it a BST (hard)](#is-it-a-binary-search-tree-hard-version)                | [is_bst_hard.py](assignments/week6/task3/is_bst_hard.py)           |
+| 6    | 4    |                                 | [Set with range sums](#set-with-range-sums)                                   | [set_range_sums.py](assignments/week6/task4/set_range_sum.py)      |
+| 6    | 5    |                                 | [Rope](#rope)                                                                 | [rope.py](assignments/week6/task5/rope.py)                         |
 
 ## 🔍 Problem Statements
 
@@ -123,3 +125,20 @@ You are given a binary tree with integers as its keys. You need to test whether 
 In this problem you are going to solve the same problem as the previous one, but for a more general case, when binary search tree may contain equal keys.
 
 You are given a binary tree with integers as its keys. You need to test whether it is a correct binary search tree. Note that there can be duplicate integers in the tree, and this is allowed. The definition of the binary search tree in such case is the following: for any node of the tree, if its key is $x$, then for any node in its left subtree its key must be strictly less than $x$, and for any node in its right subtree its key must be greater than or equal to $x$. In other words, smaller elements are to the left, bigger elements are to the right, and duplicates are always to the right. You need to check whether the given binary tree structure satisfies this condition. You are guaranteed that the input contains a valid binary tree. That is, it is a tree, and each node has at most two children.
+
+### Set with range sums
+
+In this problem, your goal is to implement a data structure to store a set of integers and quickly compute range sums.
+
+Implement a data structure that stores a set $S$ of integers with the following allowed operations:
+
+- **add**($i$) — add integer $i$ into the set $S$ (if it was there already, the set doesn’t change).
+- **del**($i$) — remove integer $i$ from the set $S$ (if there was no such element, nothing happens).
+- **find**($i$) — check whether $i$ is in the set $S$ or not.
+- **sum**($l, r$)—output the sum of all elements $v$ in $S$ such that $l \leq v \leq r$.
+
+### Rope
+
+In this problem you will implement Rope — data structure that can store a string and efficiently cut a part (a substring) of this string and insert it in a different position. This data structure can be enhanced to become persistent — that is, to allow access to the previous versions of the string. These properties make it a suitable choice for storing the text in text editors.
+
+You are given a string $S$ and you have to process $n$ queries. Each query is described by three integers $i, j, k$ and means to cut substring $S[i..j]$ ($i$ and $j$ are 0-based) from the string and then insert it after the $k$-th symbol of the remaining string (if the symbols are numbered from 1). If $k$ = 0, $S[i..j]$ is inserted in the beginning.
